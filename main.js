@@ -15,6 +15,16 @@ let questions =[
         correct: 8,
         answers: [1,5,8,33],
     },
+    {
+        question:"4+(-3)",
+        correct: 1,
+        answers: [1,5,8,33],
+    },
+    {
+        question:"4+29",
+        correct: 33,
+        answers: [1,5,8,33],
+    },
 
 ];
 function startProgram() {
@@ -43,5 +53,19 @@ function check(answer) {
         count += 1;
     }
     current +=1;
+    if (questions.length > current) {
     generate();
+    } 
+    else {
+        stop()
+    }
+}
+function stop() {
+    start.classList.remove("close");
+    main.classList.add("close");
+    result.classList.remove("close");
+
+    result.innerHTML = `решено ${count} из ${questions.length}`
+    current = 0;
+    count = 0;
 }
